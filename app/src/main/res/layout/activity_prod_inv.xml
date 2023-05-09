@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#A79E97"
+    tools:context=".prodInv">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/productView"
+            android:text="@string/productView"/>
+
+        <EditText
+            android:id="@+id/etProd"
+            android:layout_width="221dp"
+            android:layout_height="55dp"
+            android:ems="10"
+            android:hint="Ingrese Producto" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cantidadView"
+            android:text="@string/cantidadView"/>
+
+        <EditText
+            android:id="@+id/etCant"
+            android:layout_width="236dp"
+            android:layout_height="56dp"
+            android:ems="10"
+            android:hint="Ingrese Cantidad" />
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_anadir"
+        android:text="@string/btn_anadir"/>
+
+    <TableRow
+        android:id="@+id/table_row1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/seccion1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/productView" />
+
+        <TextView
+            android:id="@+id/seccion2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cantidad" />
+    </TableRow>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:id="@+id/tabla_1"
+            android:stretchColumns="***"/>
+
+    </LinearLayout>
+</LinearLayout>

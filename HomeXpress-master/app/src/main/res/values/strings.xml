@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">HomeXpress</string>
+    <string name="apptitle">Home Xpress</string>
+    <string name="btn_shop_list">Lista de Compras</string>
+    <string name="btn_lug_interes">Lugares de Interés</string>
+    <string name="btn_prod_list">Lista de Productos</string>
+    <string name="btn_prod_inv">Inventario de Productos</string>
+    <string name="btn_reminder">Recordatorio</string>
+    <string name="btn_faq">Ayuda</string>
+    <string name="lista_productos"> Ingrese el Producto</string>
+    <string name="btn_agregar">Añadir a la Lista</string>
+    <string name="btn_buscar">Buscar</string>
+    <string name="spinner">¿Dónde vamos?</string>
+    <string name="google_map_key">AIzaSyA6-bs-zAFykV0WfKGkQD6gy9SEld84FMc</string>
+    <string name="btn_add">Agregar</string>
+    <string name="productView">Nombre del Producto</string>
+    <string name="cantidadView">Ingrese la cantidad</string>
+    <string name="btn_anadir"> Agregar</string>
+    <string name="cantidad"> Cantidad</string>
+    <string name="hint_reminder">Producto próximo a vencer</string>
+    <string name="alarm1">Agregar</string>
+    <string name="alarm2">Cancelar</string>
+</resources>
