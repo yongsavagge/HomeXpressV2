@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="#A79E97"
-    tools:context=".prodInv">
+    tools:context=".userinterface.prodInv">
 
     <LinearLayout
         android:layout_width="wrap_content"

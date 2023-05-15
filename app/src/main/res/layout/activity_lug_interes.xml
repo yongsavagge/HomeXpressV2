@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#A79E97"
-    tools:context=".lugInteres">
+    tools:context=".userinterface.lugInteres">
 
     <LinearLayout
         android:layout_width="match_parent"

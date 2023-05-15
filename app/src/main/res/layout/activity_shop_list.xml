@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#A79E97"
-    tools:context=".shopList">
+    tools:context=".userinterface.shopList">
 
     <EditText
         android:id="@+id/textEdit"

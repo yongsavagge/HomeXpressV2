@@ -1,4 +1,4 @@
-package com.example.homexpress;
+package com.example.homexpress.userinterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.homexpress.R;
 import com.google.android.gms.common.util.ArrayUtils;
 
 import java.util.ArrayList;

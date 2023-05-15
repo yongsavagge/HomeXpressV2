@@ -20,19 +20,19 @@
             android:value="@string/google_map_key"/>
 
         <activity
-            android:name=".prodInv"
+            android:name=".userinterface.prodInv"
             android:exported="false" />
         <activity
-            android:name=".prodList"
+            android:name=".userinterface.prodList"
             android:exported="false" />
         <activity
-            android:name=".lugInteres"
+            android:name=".userinterface.lugInteres"
             android:exported="false" />
         <activity
-            android:name=".shopList"
+            android:name=".userinterface.shopList"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".userinterface.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

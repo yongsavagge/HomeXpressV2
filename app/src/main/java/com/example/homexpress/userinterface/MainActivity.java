@@ -1,4 +1,4 @@
-package com.example.homexpress;
+package com.example.homexpress.userinterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.homexpress.R;
 
 public class MainActivity extends AppCompatActivity {
     Button btn_shop_list;

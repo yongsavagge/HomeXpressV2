@@ -1,4 +1,4 @@
-package com.example.homexpress;
+package com.example.homexpress.userinterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.example.homexpress.R;
 
 import org.w3c.dom.Text;
 

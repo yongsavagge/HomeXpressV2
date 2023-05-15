@@ -1,7 +1,9 @@
-package com.example.homexpress;
+package com.example.homexpress.userinterface;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.homexpress.R;
+import com.example.homexpress.database.DBHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +39,8 @@ public class shopList extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_agregar:
+                DBHelper dbHelper = new DBHelper(shopList.this);
+                SQLiteDatabase database = dbHelper.getWritableDatabase();
                 String text = editText.getText().toString().trim();
                 productosLista.add(text);
                 editText.getText().clear();
