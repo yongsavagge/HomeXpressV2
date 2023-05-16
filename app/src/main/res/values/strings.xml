@@ -20,4 +20,10 @@
     <string name="hint_reminder">Producto próximo a vencer</string>
     <string name="alarm1">Agregar</string>
     <string name="alarm2">Cancelar</string>
+
+    <string name="nom_Prod">Nombre Producto:</string>
+    <string name="cant_Prod">Cantidad:</string>
+    <string name="prec_Prod">Precio:</string>
+
+
 </resources>

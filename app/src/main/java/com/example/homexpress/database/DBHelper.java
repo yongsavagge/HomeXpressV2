@@ -11,7 +11,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NOMBRE = "shopxpress.db";
-    private static final String TABLE_PRODUCTOS = "t_productos";
+    public static final String TABLE_PRODUCTOS = "t_productos";
 
 
 
