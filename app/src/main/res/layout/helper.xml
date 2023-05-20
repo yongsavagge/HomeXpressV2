@@ -1,39 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#A79E97"
-    tools:context=".userinterface.shopList">
+    android:background="#A79E97">
+
+    <TextView
+        android:id="@+id/viewNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:hint="@string/nom_Prod"/>
 
     <EditText
         android:id="@+id/txtNombre"
         android:layout_width="match_parent"
         android:layout_height="66dp"
         android:ems="10"
-        android:hint="@string/nom_Prod"
+        android:labelFor="@+id/viewNombre"
         android:inputType="textPersonName" />
 
+    <TextView
+        android:id="@+id/viewCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:hint="@string/cant_Prod"/>
     <EditText
-        android:id="@+id/numCant"
+        android:id="@+id/txtCantidad"
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:ems="10"
-        android:hint="@string/cant_Prod"
+        android:labelFor="@+id/viewCantidad"
         android:inputType="number" />
 
+    <TextView
+        android:id="@+id/viewPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:hint="@string/prec_Prod"/>
     <EditText
-        android:id="@+id/numPrecio"
+        android:id="@+id/txtPrecio"
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:ems="10"
-        android:hint="@string/prec_Prod"
+        android:labelFor="@+id/viewPrecio"
         android:inputType="number" />
 
     <Button
-        android:id="@+id/btn_agregar"
+        android:id="@+id/btn_guardar"
         android:layout_width="match_parent"
         android:layout_height="63dp"
         android:text="@string/btn_agregar"
@@ -42,10 +59,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/numPrecio"
         app:layout_constraintVertical_bias="0.866" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listaProductos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
 </LinearLayout>

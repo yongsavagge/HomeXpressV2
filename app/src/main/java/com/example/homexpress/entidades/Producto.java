@@ -1,52 +1,43 @@
 package com.example.homexpress.entidades;
 
 public class Producto {
-    private int id_producto, cant_producto;
-    private String nombre_prod;
-    private int precio_prod;
+    private String txtnombre;
+    private int numCant;
+    private int numPrecio;
 
     //Constructor vacío
     public Producto() {
     }
     //Constructor con argumentos
-    public Producto(int id_producto, int cant_producto, String nombre_prod, int precio_prod) {
-        this.id_producto = id_producto;
-        this.cant_producto = cant_producto;
-        this.nombre_prod = nombre_prod;
-        this.precio_prod = precio_prod;
+
+
+    public Producto(String txtnombre, int numCant, int numPrecio) {
+        this.txtnombre = txtnombre;
+        this.numCant = numCant;
+        this.numPrecio = numPrecio;
     }
 
-    public int getId_producto() {
-        return id_producto;
+    public String getTxtnombre() {
+        return txtnombre;
     }
 
-    public void setId_producto(int id_producto) {
-        this.id_producto = id_producto;
+    public void setTxtnombre(String txtnombre) {
+        this.txtnombre = txtnombre;
     }
 
-    public int getCant_producto() {
-        return cant_producto;
+    public int getNumCant() {
+        return numCant;
     }
 
-    public void setCant_producto(int cant_producto) {
-        this.cant_producto = cant_producto;
+    public void setNumCant(int numCant) {
+        this.numCant = numCant;
     }
 
-    public String getNombre_prod() {
-        return nombre_prod;
+    public int getNumPrecio() {
+        return numPrecio;
     }
 
-    public void setNombre_prod(String nombre_prod) {
-        this.nombre_prod = nombre_prod;
+    public void setNumPrecio(int numPrecio) {
+        this.numPrecio = numPrecio;
     }
-
-    public double getPrecio_prod() {
-        return precio_prod;
-    }
-
-    public void setPrecio_prod(int precio_prod) {
-        this.precio_prod = precio_prod;
-    }
-
-
 }

@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class DBHelper extends SQLiteOpenHelper {
 
 
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 6;
     private static final String DATABASE_NOMBRE = "shopxpress.db";
     public static final String TABLE_PRODUCTOS = "t_productos";
 
@@ -22,10 +22,9 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_PRODUCTOS + "(" +
-                "id_producto INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "nombre_prod TEXT NOT NULL," +
-                "cant_prod INTEGER NOT NULL," +
-                "precio_prod INTEGER NOT NULL)");
+                "nombre_prod NOT NULL, " +
+                "cant_prod TEXT NOT NULL," +
+                "precio_prod TEXT NOT NULL)");
     }
     // en caso de que se cambie la version de la base de datos
     @Override
