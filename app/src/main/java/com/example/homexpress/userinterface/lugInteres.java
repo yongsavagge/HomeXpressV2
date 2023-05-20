@@ -39,7 +39,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
-public class lugInteres extends AppCompatActivity {
+public class lugInteres extends AppCompatActivity implements OnMapReadyCallback {
 
     Spinner spType;
     Button btn_buscar;
@@ -57,8 +57,8 @@ public class lugInteres extends AppCompatActivity {
         btn_buscar = findViewById(R.id.btn_buscar);
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_google);
 
-        String[] lista_lugares = {"supermercados", "negocios", "farmacias"};
-        String[] nombres_lugares = {"Supermercados", "Negocios", "Farmacias"};
+        String[] lista_lugares = {"supermarket", "store", "pharmacy"};
+        String[] nombres_lugares = {"Supermercado", "Negocio", "Farmacia"};
 
         spType.setAdapter(new ArrayAdapter<>(lugInteres.this, android.R.layout.simple_spinner_dropdown_item, nombres_lugares));
 
@@ -74,40 +74,32 @@ public class lugInteres extends AppCompatActivity {
             public void onClick(View view) {
                 int i = spType.getSelectedItemPosition();
                 String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json" + "?location=" + currentLat + "," + currentLong + "&radius=5000" + "&types=" + lista_lugares[i] + "&sensor=true" + "&key=" + getResources().getString(R.string.google_map_key);
-                new PlaceTask().execute();
+                new PlaceTask().execute(url);
             }
         });
 
+        supportMapFragment.getMapAsync(this);
     }
 
-    private void execute(String url) {
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        map = googleMap;
     }
 
     private void getCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
             return;
         }
         Task<Location> task = fusedLocationProviderClient.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
             public void onSuccess(Location location) {
-                if(location !=null){
+                if (location != null) {
                     currentLat = location.getLatitude();
                     currentLong = location.getLongitude();
-                    supportMapFragment.getMapAsync(new OnMapReadyCallback() {
-                        @Override
-                        public void onMapReady(@NonNull GoogleMap googleMap) {
-                            map = googleMap;
-                            map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(currentLat, currentLong), 10));
-                        }
-                    });
+                    LatLng latLng = new LatLng(currentLat, currentLong);
+                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
                 }
             }
         });
@@ -116,26 +108,28 @@ public class lugInteres extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode ==44){
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == 44) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getCurrentLocation();
             }
         }
     }
+
     private class PlaceTask extends AsyncTask<String, Integer, String> {
 
         @Override
         protected String doInBackground(String... strings) {
             String data = null;
             try {
-                 data = downloadUrl(strings[0]);
+                data = downloadUrl(strings[0]);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             return data;
         }
+
         @Override
-        protected void onPostExecute(String s){
+        protected void onPostExecute(String s) {
             new ParserTask().execute(s);
         }
     }
@@ -148,18 +142,17 @@ public class lugInteres extends AppCompatActivity {
         InputStream stream = connection.getInputStream();
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         StringBuilder builder = new StringBuilder();
-        String line = "";
-        while ((line = reader.readLine()) !=null){
+        String line;
+        while ((line = reader.readLine()) != null) {
             builder.append(line);
         }
         String data = builder.toString();
         reader.close();
 
         return data;
-
     }
 
-    private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String,String>>> {
+    private class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, String>>> {
 
         @Override
         protected List<HashMap<String, String>> doInBackground(String... strings) {
@@ -179,7 +172,7 @@ public class lugInteres extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<HashMap<String, String>> hashMaps) {
             map.clear();
-            for(int i=0; i<hashMaps.size(); i++){
+            for (int i = 0; i < hashMaps.size(); i++) {
                 HashMap<String, String> hashMapList = hashMaps.get(i);
                 double lat = Double.parseDouble(hashMapList.get("lat"));
                 double lng = Double.parseDouble(hashMapList.get("lng"));
@@ -187,12 +180,9 @@ public class lugInteres extends AppCompatActivity {
                 LatLng latLng = new LatLng(lat, lng);
 
                 MarkerOptions options = new MarkerOptions();
-
                 options.position(latLng);
                 options.title(name);
                 map.addMarker(options);
-
-
             }
         }
     }
